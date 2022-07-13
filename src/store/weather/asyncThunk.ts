@@ -9,8 +9,7 @@ export const fetchWeatherByCity = createAsyncThunk(
   async (cityName: string, { rejectWithValue, dispatch }) => {
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=${API_KEY}`,
-        { headers: { "Access-Control-Allow-Origin": "*" } }
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=${API_KEY}`
       );
       return response.data;
     } catch (error: any) {
@@ -34,8 +33,7 @@ export const fetchDailyWeatherByCity = createAsyncThunk(
   ) => {
     try {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,current,hourly&units=metric&appid=cda98f771710dfa64f48f02df183ada6`,
-        { headers: { "Access-Control-Allow-Origin": "*" } }
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,current,hourly&units=metric&appid=cda98f771710dfa64f48f02df183ada6`
       );
       return response.data;
     } catch (error: any) {
